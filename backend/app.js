@@ -1,5 +1,13 @@
-const express = require("express");
+const express = require("express"); // Bring the express framework into this file so we can use it to create a server
 
-const app = express();
+const app = express(); // create a new express application and store it in app variable
 
-module.exports = app;
+// Middleware
+app.use(express.json()); // Tell express to automatically understand JSON data sent by the client
+
+// Home Route
+app.get("/", (req, res) => {   //when someone visits the home page run this code
+    res.send("Welcome to Course Selling Platform Backend 🚀");   // send message back to the user's browser
+});
+
+module.exports = app; // Share the app object, so other files can use it.
